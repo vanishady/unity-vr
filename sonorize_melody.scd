@@ -23,13 +23,18 @@ Server.killAll;
 /*------------------------ Synth -----------------------------*/
 
 (
-~selectedpath = "C:/Users/Very/Desktop/py_for_unity/sounds/hand_whisper.wav";
+~selectedpath = "./sounds/hand_whisper.wav";
 ~buf = Buffer.readChannel(Server.default, ~selectedpath, channels:[0]);
 )
 
 (
-~selectedpath2 = "C:/Users/Very/Desktop/py_for_unity/sounds/background_whisper.wav";
+~selectedpath2 = "./sounds/background_whisper.wav";
 ~buf2 = Buffer.readChannel(Server.default, ~selectedpath2, channels:[0]);
+)
+
+(
+~pathambiance = "./sounds/ambiance.wav";
+~bufambiance = Buffer.readChannel(Server.default, ~pathambiance, channels:[0]);
 )
 
 // buffer testing instruction
@@ -58,20 +63,24 @@ SynthDef.new(\looper, {
 
 	arg out=0, rate=1, amp=0.5, buffer=0;
 
-	var signal;
+	var signal, rev, pan;
 
 	signal = PlayBuf.ar(1, buffer,
 		BufRateScale.kr(buffer)*rate,
 		loop:1);
 
-	Out.ar(out, signal!2 * amp);
+	rev = FreeVerb.ar(signal);
+
+	pan = Pan2.ar(rev, FSinOsc.kr(0.1, mul: 0.2));
+
+	Out.ar(out, pan * amp);
 
 }).add;
 )
 
 (
 s.waitForBoot {
-    Synth(\looper, [\buffer, ~buf2.bufnum, \rate, 1.0, \amp, 0.2]);
+    Synth(\looper, [\buffer, ~bufambiance.bufnum, \rate, 1.0, \amp, 5]);
 };
 )
 
