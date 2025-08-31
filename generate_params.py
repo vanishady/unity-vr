@@ -12,7 +12,7 @@ SC_IP = "127.0.0.1"
 SC_PORT = 57120
 SC_ADDRESS = "/music_params"
 
-OSC_RCV_IP = "0.0.0.0"           # quando gira sul vr: "192.168.1.244" 
+OSC_RCV_IP = "0.0.0.0"           # quando gira sul vr: "192.168.1.244" #10.19.71.55
 OSC_RCV_PORT = 57121     
 
 SEQ_LENGTH = 10
