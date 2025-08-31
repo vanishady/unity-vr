@@ -67,7 +67,7 @@ namespace MimicSpace
         private void HandleMovement()
         {
             // Simple translation of -50 on the Z-axis
-            Vector3 targetPosition = transform.position + new Vector3(0, 0, -100);
+            Vector3 targetPosition = transform.position + new Vector3(-100, 0, 0);
 
             // Smoothly move towards the target position
             velocity = Vector3.Lerp(velocity, (targetPosition - transform.position).normalized * speed, velocityLerpCoef * Time.deltaTime);
