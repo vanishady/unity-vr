@@ -91,6 +91,7 @@
     <Compile Include="Assets\extOSC\Examples\09) Address Masks\Scripts\AddressMaskExample.cs" />
     <Compile Include="Assets\_Scripts\MimicMovement.cs" />
     <Compile Include="Assets\extOSC\Examples\04) Informers\Scripts\InformersExample.cs" />
+    <Compile Include="Assets\ProximitySound.cs" />
     <Compile Include="Assets\extOSC\Examples\01) Getting Started\Scripts\SimpleMessageTransmitter.cs" />
     <Compile Include="Assets\_Scripts\CollisionDetector.cs" />
     <Compile Include="Assets\extOSC\Examples\11) Array\Scripts\ArrayExample.cs" />
